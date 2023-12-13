@@ -53,6 +53,30 @@ class NameCompare implements Comparator<Student>{
 
 
 
+class IdAndName implements Comparator<Student>{
+
+  
+
+    @Override
+    public int compare(Student s1, Student s2) {
+        // TODO Auto-generated method stub
+        if(s1.getId()==s2.getId()){
+
+           return s1.getName().compareTo(s2.getName());
+
+        }
+        else{
+            return s1.id - s2.id;
+        }
+
+
+       
+    }
+
+
+}
+
+
 
 public class CustomSortArrayList {
 
@@ -60,8 +84,11 @@ public class CustomSortArrayList {
         
         ArrayList<Student> studentList= new ArrayList<>();
         studentList.add(new Student(2,"prasad","computer science"));
-        
+          studentList.add(new Student(1,"sai","computer science"));
+       studentList.add(new Student(1,"sai","electronics"));
+      
         studentList.add(new Student(1,"hari","computer science"));
+       
         studentList.add(new Student(3,"sai","computer science"));
         
         System.out.println("Sorting by ids:");
@@ -79,6 +106,13 @@ public class CustomSortArrayList {
 
         for(Student st: studentList){
             System.out.println(st.getName()+ "" +st.getId());
+        }
+
+        IdAndName idandName = new IdAndName();
+        System.out.println("Sorting by Id then name");
+        Collections.sort(studentList,idandName);
+        for(Student st: studentList){
+            System.out.println(st.getName()+ "" +st.getId()+" " + st.getBranch());
         }
         // System.out.println(studentList);
 
