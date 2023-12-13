@@ -26,8 +26,8 @@ class Complex {
 		Complex c = (Complex) o;
 		
 		// Compare the data members and return accordingly
-		return Double.compare(re, c.re) == 0
-				&& Double.compare(im, c.im) == 0;
+		return Double.compare(this.re, c.re) == 0
+				&& Double.compare(this.im, c.im) == 0;
 	}
 }
 
